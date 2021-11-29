@@ -95,39 +95,27 @@ int main()
 
     while(!file.eof()) {
 		//Available instances of resources
-		//int avail[] = {3, 3, 2};
 		int avail[R];
 		for (int j = 0; j < R; j++) {
   			file >> avail[j];
 		}
 
+		//Resources allocated to processes
 		int allot[P][R];
 		for (int i = 0; i < P; i++) {
 			for (int j = 0; j < R; j++) {
   				file >> allot[i][j];
 			}
 		}
-		//Resources allocated to processes
-		// int allot[][R] = {{0, 1, 0},
-		// 				{2, 0, 0},
-		// 				{3, 0, 2},
-		// 				{2, 1, 1},
-		// 				{0, 0, 2}};
 
+		//Maximum R that can be allocated to processes
 		int maxm[P][R];
 		for (int i = 0; i < P; i++) {
 			for (int j = 0; j < R; j++) {
   				file >> maxm[i][j];
 			}
 		}
-		//Maximum R that can be allocated to processes
-		// int maxm[][R] = {{7, 5, 3},
-		// 				{3, 2, 2},
-		// 				{9, 0, 2},
-		// 				{2, 2, 2},
-		// 				{4, 3, 3}};
-		// }
-
+	
 		//Check system is in safe state or not
 		isSafe(processes, avail, maxm, allot);
 	}
